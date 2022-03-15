@@ -15,7 +15,8 @@ select nazwisko, placa_pod*12 as roczna_placa from pracownicy order by nazwisko 
 
 ## Zadanie 4
 ```sql
-select nazwisko, etat, placa_pod + coalesce(placa_dod, 0) as miesieczne_zarobki from pracownicy order by miesieczne_zarobki desc;
+select nazwisko, etat, placa_pod + coalesce(placa_dod, 0) 
+as miesieczne_zarobki from pracownicy order by miesieczne_zarobki desc;
 ```
 
 ## Zadanie 5
@@ -45,30 +46,38 @@ select * from pracownicy where placa_pod between 300 and 800 order by nazwisko a
 
 ## Zadanie 10
 ```sql
-select nazwisko, etat, id_zesp from pracownicy where nazwisko like '%SKI' order by nazwisko asc;
+select nazwisko, etat, id_zesp from pracownicy 
+where nazwisko like '%SKI' order by nazwisko asc;
 ```
 
 ## Zadanie 11
 ```sql
-select id_prac, id_szefa, nazwisko, placa_pod from pracownicy where placa_pod > 1000 and id_szefa is not NULL;
+select id_prac, id_szefa, nazwisko, placa_pod from pracownicy 
+where placa_pod > 1000 and id_szefa is not NULL;
 ```
 
 ## Zadanie 12
 ```sql
-select nazwisko, id_zesp from pracownicy where id_zesp = 20 and (nazwisko like 'M%' or nazwisko like '%SKI') order by nazwisko asc;
+select nazwisko, id_zesp from pracownicy 
+where id_zesp = 20 and (nazwisko like 'M%' or nazwisko like '%SKI') 
+order by nazwisko asc;
 ```
 
 ## Zadanie 13
 ```sql
-select nazwisko, id_zesp from pracownicy where id_zesp = 20 and (nazwisko like 'M%' or nazwisko like '%SKI') order by nazwisko asc;
+select nazwisko, id_zesp from pracownicy 
+where id_zesp = 20 and (nazwisko like 'M%' or nazwisko like '%SKI') 
+order by nazwisko asc;
 ```
 
 ## Zadanie 14
 ```sql
-select nazwisko, etat, placa_pod, placa_dod from pracownicy where placa_pod + coalesce(placa_dod, 0) > 1000 order by etat asc, nazwisko asc;
+select nazwisko, etat, placa_pod, placa_dod from pracownicy 
+where placa_pod + coalesce(placa_dod, 0) > 1000 order by etat asc, nazwisko asc;
 ```
 
 ## Zadanie 15
 ```sql
-select nazwisko || ' pracuje od ' || zatrudniony || ' i zarabia ' || placa_pod as profesorowie from pracownicy where etat = 'PROFESOR' order by placa_pod desc;
+select nazwisko || ' pracuje od ' || zatrudniony || ' i zarabia ' || placa_pod 
+as profesorowie from pracownicy where etat = 'PROFESOR' order by placa_pod desc;
 ```
