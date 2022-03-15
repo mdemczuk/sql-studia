@@ -25,7 +25,8 @@ SELECT MAX(SUM(placa_pod)+SUM(placa_dod))AS maks_sum_placa FROM pracownicy GROUP
 
 ## Zadanie 6
 ```sql
-SELECT id_szefa, MIN(placa_pod) AS minimalna FROM pracownicy WHERE id_szefa IS NOT NULL GROUP BY id_szefa ORDER BY minimalna DESC;
+SELECT id_szefa, MIN(placa_pod) AS minimalna FROM pracownicy WHERE id_szefa IS NOT NULL GROUP BY id_szefa 
+ORDER BY minimalna DESC;
 ```
 
 ## Zadanie 7
@@ -35,7 +36,8 @@ SELECT id_zesp, COUNT(*) AS ilu_pracuje FROM pracownicy GROUP BY id_zesp ORDER B
 
 ## Zadanie 8
 ```sql
-SELECT id_zesp, COUNT(*) AS ilu_pracuje FROM pracownicy GROUP BY id_zesp HAVING COUNT(*) > 3 ORDER BY ilu_pracuje DESC;
+SELECT id_zesp, COUNT(*) AS ilu_pracuje FROM pracownicy GROUP BY id_zesp HAVING COUNT(*) > 3 
+ORDER BY ilu_pracuje DESC;
 ```
 
 ## Zadanie 9
@@ -45,22 +47,27 @@ SELECT id_prac FROM pracownicy WHERE id_prac IN (SELECT id_prac FROM pracownicy 
 
 ## Zadanie 10
 ```sql
-SELECT etat, AVG(placa_pod) AS srednia, COUNT(*) AS liczba FROM pracownicy WHERE zatrudniony < DATE '1990-01-01' GROUP BY etat ORDER BY etat;
+SELECT etat, AVG(placa_pod) AS srednia, COUNT(*) AS liczba FROM pracownicy WHERE zatrudniony < DATE '1990-01-01' 
+GROUP BY etat ORDER BY etat;
 ```
 
 ## Zadanie 11
 ```sql
-SELECT id_zesp, etat,  FLOOR(AVG(coalesce(placa_pod+placa_dod, placa_pod, placa_dod, 0)))AS srednia, FLOOR(MAX(coalesce(placa_pod+placa_dod, placa_pod, placa_dod, 0)))AS maksymalna FROM pracownicy WHERE etat = 'PROFESOR' OR etat = 'ASYSTENT' GROUP BY id_zesp, etat ORDER BY id_zesp, etat;
+SELECT id_zesp, etat,  FLOOR(AVG(coalesce(placa_pod+placa_dod, placa_pod, placa_dod, 0)))
+AS srednia, FLOOR(MAX(coalesce(placa_pod+placa_dod, placa_pod, placa_dod, 0)))AS maksymalna 
+FROM pracownicy WHERE etat = 'PROFESOR' OR etat = 'ASYSTENT' GROUP BY id_zesp, etat ORDER BY id_zesp, etat;
 ```
 
 ## Zadanie 12
 ```sql
-SELECT EXTRACT(YEAR FROM zatrudniony) AS rok, COUNT(*) AS ilu_pracownikow FROM pracownicy GROUP BY EXTRACT(YEAR FROM zatrudniony) HAVING COUNT(*) > 0 ORDER BY rok;
+SELECT EXTRACT(YEAR FROM zatrudniony) AS rok, COUNT(*) AS ilu_pracownikow FROM pracownicy 
+GROUP BY EXTRACT(YEAR FROM zatrudniony) HAVING COUNT(*) > 0 ORDER BY rok;
 ```
 
 ## Zadanie 13
 ```sql
-SELECT LENGTH(nazwisko) AS ile_liter, COUNT(*) AS w_ilu_nazwiskach FROM pracownicy GROUP BY LENGTH(nazwisko) HAVING COUNT(*) > 0 ORDER BY ile_liter;
+SELECT LENGTH(nazwisko) AS ile_liter, COUNT(*) AS w_ilu_nazwiskach FROM pracownicy 
+GROUP BY LENGTH(nazwisko) HAVING COUNT(*) > 0 ORDER BY ile_liter;
 ```
 
 ## Zadanie 14
